@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8" />
-<meta name="color-scheme" content="dark light" />
+<meta name="color-scheme" content="dark" />
 <meta name="robots" content="noindex" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>~</title>
@@ -8,23 +8,15 @@
 <style>
   :root {
     --border-radius: 1rem;
-    --color-background: #111;
-    --color-text-subtle: #888;
-    --color-text: #eee;
+    --color-background: #282828;
+    --color-text-subtle: #8f9191;
+    --color-text: #eadbb2;
     --font-family: -apple-system, Helvetica, sans-serif;
     --font-size: clamp(16px, 1.6vw, 18px);
     --font-weight-bold: 700;
     --font-weight-normal: 400;
     --space: 1rem;
     --transition-speed: 200ms;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --color-background: #e8e8e8;
-      --color-text-subtle: #606060;
-      --color-text: #111;
-    }
   }
 </style>
 
@@ -34,53 +26,64 @@
     commandSearchDelimiter: ' ',
     defaultSearchTemplate: 'https://duckduckgo.com/?q={}',
     openLinksInNewTab: true,
-    suggestionLimit: 4,
+    suggestionLimit: 5,
   };
 
   const COMMANDS = new Map([
-    ['a', { name: 'Chat', url: 'https://chat.openai.com' }],
-    ['b', { name: 'Dribbble', url: 'https://dribbble.com/shots/recent' }],
-    ['c', { name: 'Calendar', url: 'https://calendar.google.com' }],
-    ['d', { name: 'Drive', url: 'https://drive.google.com' }],
-    ['f', { name: 'Figma', url: 'https://www.figma.com' }],
-    ['g', { name: 'GitHub', url: 'https://github.com' }],
-    ['k', { name: 'Keep', url: 'https://keep.google.com' }],
-    ['m', { name: 'Mail', url: 'https://mail.proton.me/u/0/inbox' }],
-    ['n', { name: 'Notion', url: 'https://www.notion.so' }],
-    ['p', { name: 'Pomodoro', url: 'https://pomodoro.xvvvyz.xyz' }],
+    ['a', { name: 'gpt', url: 'https://chat.openai.com' }],
+    ['s', { name: 'shopify', url: 'https://admin.shopify.com' }],
+    ['t', { name: 'tidio', url: 'https://tidio.com/panel' }],
+    ['c', { name: 'clarity', url: 'https://clarity.microsoft.com/projects' }],
+    ['g', { name: 'ga', url: 'https://analytics.google.com' }],
+    [
+      'm',
+      {
+        name: 'mail',
+        searchTemplate: '/almost-all-mail#keyword={}',
+        url: 'https://mail.proton.me/u/0',
+      },
+    ],
+    [
+      'd',
+      {
+        name: 'drive',
+        searchTemplate: '/#page=filemanager&q=name%3A{}',
+        url: 'https://my.pcloud.com',
+      },
+    ],
+    ['n', { name: 'nba', url: 'https://nba.com/schedule' }],
+    [
+      'k',
+      {
+        name: 'kindle',
+        searchTemplate: '/kindle-library?search={}',
+        url: 'https://read.amazon.com.au',
+      },
+    ],
     [
       'r',
       {
-        name: 'Reddit',
+        name: 'reddit',
+        searchTemplate: '/search?q={}',
         suggestions: [
-          'r/r/webdev',
-          'r/r/dataisbeautiful',
-          'r/r/fujix',
-          'r/r/leetcode',
+          'r/r/ecommerce',
+          'r/r/facebookads',
+          'r/r/godot',
+          'r/r/neovim',
+          'r/r/zettelkasten',
         ],
         url: 'https://reddit.com',
       },
     ],
-    ['s', { name: 'Supabase', url: 'https://supabase.com/dashboard/projects' }],
-    ['t', { name: 'Translate', url: 'https://www.deepl.com/translator' }],
-    ['v', { name: 'Vercel', url: 'https://vercel.com/dashboard' }],
     [
-      'y',
+      'h',
       {
-        name: 'YouTube',
-        searchTemplate: '/results?search_query={}',
-        url: 'https://youtube.com/feed/subscriptions',
+        name: 'github',
+        searchTemplate: '/search?q={}',
+        url: 'https://github.com',
       },
     ],
-    [
-      '0',
-      {
-        name: 'localhost',
-        searchTemplate: ':{}',
-        suggestions: ['0 54323', '0 54324'],
-        url: 'http://localhost:3000',
-      },
-    ],
+    ['v', { name: 'vercel', url: 'https://vercel.com/dashboard' }],
   ]);
 </script>
 
